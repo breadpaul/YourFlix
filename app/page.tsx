@@ -191,78 +191,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== VOD SLIDER ==================== */}
-      <section className="pt-10 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #FFC107 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
-        <div className="container mx-auto px-6 mb-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 gap-4">
-            <div>
-              <h4 className="text-[#FFC107] text-sm font-bold uppercase tracking-wider mb-2">Video On Demand</h4>
-              <h2 className="text-3xl md:text-4xl font-black text-white">Latest Blockbusters & 4K Series on YourFlix</h2>
+      <div className="flex overflow-hidden pb-8">
+        <div className="flex gap-5 w-max animate-slide hover:[animation-play-state:paused]">
+          {[
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
+            '6.jpg',
+            '7.jpg',
+            '8.jpg',
+            '9.jpg',
+            '10.jpg',
+            '11.jpg',
+            '12.jpg',
+            '13.jpg',
+            '14.jpg',
+            '15.jpg',
+            '16.jpg',
+            '17.jpg',
+          ].map((filename, index) => (
+            <div key={index} className="w-[180px] md:w-[220px] aspect-[2/3] relative rounded-xl overflow-hidden group bg-gray-800 shrink-0 border border-white/10 shadow-xl cursor-pointer">
+              <Image
+                src={`/img/movies/${filename}`}
+                alt={`YourFlix VOD library - trending movie ${index + 1} available in 4K`}
+                fill
+                className="object-cover group-hover:scale-150 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button className="bg-[#FFC107] text-black rounded-full p-4 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" aria-label="Watch on YourFlix">
+                  <Play className="w-6 h-6 ml-0.5 fill-current" />
+                </button>
+              </div>
             </div>
-            <Link href="/pricing" className="inline-flex items-center gap-2 text-[#FFC107] font-bold hover:text-white transition-colors">
-              Explore YourFlix Library <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="flex overflow-hidden pb-8">
-            <div className="flex gap-5 w-max animate-slide hover:[animation-play-state:paused]">
-              {[
-                { src: 'movie-01.jpg', title: 'Movie 1' },
-                { src: 'movie-02.jpg', title: 'Movie 2' },
-                { src: 'movie-03.jpg', title: 'Movie 3' },
-                { src: 'movie-04.jpg', title: 'Movie 4' },
-                { src: 'movie-05.jpg', title: 'Movie 5' },
-                { src: 'movie-06.jpg', title: 'Movie 6' },
-                { src: 'movie-07.jpg', title: 'Movie 7' },
-                { src: 'movie-08.jpg', title: 'Movie 8' },
-                { src: 'movie-09.jpg', title: 'Movie 9' },
-                { src: 'movie-10.jpg', title: 'Movie 10' },
-                { src: 'movie-11.jpg', title: 'Movie 11' },
-                { src: '1RaSkWakWBxxYOWRrqmwo2my5zg.webp', title: 'Dune' },
-                { src: '1XS1oqL89opfnbLl8WnZY1O1ujx.webp', title: 'Oppenheimer' },
-                { src: 'cjXLrg4R7FRPFafvuQ3SSznQOd9.webp', title: 'John Wick 4' },
-                { src: 'dmo6TYuuJgaYinXBPjrgG9mB5od.webp', title: 'The Batman' },
-                { src: 'kf5Hz70tjNAHg4swGDzOr9BfoZ1.webp', title: 'Black Panther' },
-                { src: 'kidkbZRBGbseIrX7pODRSKi9ipl.webp', title: 'The Flash' },
-                { src: 'ldyfo0BKmx5rWtUJKCvwaNS4cJT.webp', title: 'Indiana Jones' },
-                { src: 'nrM2xFUkJEmZzd5d7kohT2G0C.webp', title: 'Mission Impossible' },
-                { src: 'oANi0veE92nuijjZQgPZ88FSxqQ.webp', title: 'Barbie' },
-                { src: 'og6S0aTZU6YUJAbqxekKjCa3kY1E.webp', title: 'The Marvels' },
-              ].map((movie, index) => (
-                <div key={index} className="w-[180px] md:w-[220px] aspect-[2/3] relative rounded-xl overflow-hidden group bg-gray-800 shrink-0 border border-white/10 shadow-xl cursor-pointer">
-                  <Image
-                    src={`/img/movies/${movie.src}`}
-                    alt={`YourFlix VOD library - ${movie.title} available in 4K`}
-                    fill
-                    sizes="(max-width: 768px) 180px, 220px"
-                    className="object-cover group-hover:scale-150 transition-transform duration-700"
-                    onError={(e) => {
-                      // Fallback if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      // You could also set a default fallback image
-                      // target.src = '/img/movies/placeholder.jpg';
-                    }}
-                  />
-                  {/* Fallback content if image fails */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-center p-4">
-                      <Play className="w-8 h-8 text-[#FFC107] mx-auto mb-2" />
-                      <p className="text-white text-xs font-bold">{movie.title}</p>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <button className="bg-[#FFC107] text-black rounded-full p-4 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" aria-label={`Watch ${movie.title} on YourFlix`}>
-                      <Play className="w-6 h-6 ml-0.5 fill-current" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
       {/* ==================== LOGO SLIDER ==================== */}
       <section className="py-8 bg-black overflow-hidden whitespace-nowrap border-y border-white/5">
         <h2 className="sr-only">YourFlix includes content from top providers</h2>
