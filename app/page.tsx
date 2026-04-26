@@ -208,37 +208,52 @@ export default function Home() {
           <div className="flex overflow-hidden pb-8">
             <div className="flex gap-5 w-max animate-slide hover:[animation-play-state:paused]">
               {[
-                'movie-01.jpg',
-                'movie-02.jpg',
-                'movie-03.jpg',
-                'movie-04.jpg',
-                'movie-05.jpg',
-                'movie-06.jpg',
-                'movie-07.jpg',
-                'movie-08.jpg',
-                'movie-09.jpg',
-                'movie-10.jpg',
-                'movie-11.jpg',
-                '1RaSkWakWBxxYOWRrqmwo2my5zg.webp',
-                '1XS1oqL89opfnbLl8WnZY1O1ujx.webp',
-                'cjXLrg4R7FRPFafvuQ3SSznQOd9.webp',
-                'dmo6TYuuJgaYinXBPjrgG9mB5od.webp',
-                'kf5Hz70tjNAHg4swGDzOr9BfoZ1.webp',
-                'kidkbZRBGbseIrX7pODRSKi9ipl.webp',
-                'ldyfo0BKmx5rWtUJKCvwaNS4cJT.webp',
-                'nrM2xFUkJEmZzd5d7kohT2G0C.webp',
-                'oANi0veE92nuijjZQgPZ88FSxqQ.webp',
-                'og6S0aTZU6YUJAbqxekKjCa3kY1E.webp',
-              ].map((filename, index) => (
+                { src: 'movie-01.jpg', title: 'Movie 1' },
+                { src: 'movie-02.jpg', title: 'Movie 2' },
+                { src: 'movie-03.jpg', title: 'Movie 3' },
+                { src: 'movie-04.jpg', title: 'Movie 4' },
+                { src: 'movie-05.jpg', title: 'Movie 5' },
+                { src: 'movie-06.jpg', title: 'Movie 6' },
+                { src: 'movie-07.jpg', title: 'Movie 7' },
+                { src: 'movie-08.jpg', title: 'Movie 8' },
+                { src: 'movie-09.jpg', title: 'Movie 9' },
+                { src: 'movie-10.jpg', title: 'Movie 10' },
+                { src: 'movie-11.jpg', title: 'Movie 11' },
+                { src: '1RaSkWakWBxxYOWRrqmwo2my5zg.webp', title: 'Dune' },
+                { src: '1XS1oqL89opfnbLl8WnZY1O1ujx.webp', title: 'Oppenheimer' },
+                { src: 'cjXLrg4R7FRPFafvuQ3SSznQOd9.webp', title: 'John Wick 4' },
+                { src: 'dmo6TYuuJgaYinXBPjrgG9mB5od.webp', title: 'The Batman' },
+                { src: 'kf5Hz70tjNAHg4swGDzOr9BfoZ1.webp', title: 'Black Panther' },
+                { src: 'kidkbZRBGbseIrX7pODRSKi9ipl.webp', title: 'The Flash' },
+                { src: 'ldyfo0BKmx5rWtUJKCvwaNS4cJT.webp', title: 'Indiana Jones' },
+                { src: 'nrM2xFUkJEmZzd5d7kohT2G0C.webp', title: 'Mission Impossible' },
+                { src: 'oANi0veE92nuijjZQgPZ88FSxqQ.webp', title: 'Barbie' },
+                { src: 'og6S0aTZU6YUJAbqxekKjCa3kY1E.webp', title: 'The Marvels' },
+              ].map((movie, index) => (
                 <div key={index} className="w-[180px] md:w-[220px] aspect-[2/3] relative rounded-xl overflow-hidden group bg-gray-800 shrink-0 border border-white/10 shadow-xl cursor-pointer">
                   <Image
-                    src={`/img/movies/${filename}`}
-                    alt={`YourFlix VOD library - trending movie ${index + 1} available in 4K`}
+                    src={`/img/movies/${movie.src}`}
+                    alt={`YourFlix VOD library - ${movie.title} available in 4K`}
                     fill
+                    sizes="(max-width: 768px) 180px, 220px"
                     className="object-cover group-hover:scale-150 transition-transform duration-700"
+                    onError={(e) => {
+                      // Fallback if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      // You could also set a default fallback image
+                      // target.src = '/img/movies/placeholder.jpg';
+                    }}
                   />
+                  {/* Fallback content if image fails */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="text-center p-4">
+                      <Play className="w-8 h-8 text-[#FFC107] mx-auto mb-2" />
+                      <p className="text-white text-xs font-bold">{movie.title}</p>
+                    </div>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <button className="bg-[#FFC107] text-black rounded-full p-4 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" aria-label="Watch on YourFlix">
+                    <button className="bg-[#FFC107] text-black rounded-full p-4 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" aria-label={`Watch ${movie.title} on YourFlix`}>
                       <Play className="w-6 h-6 ml-0.5 fill-current" />
                     </button>
                   </div>
