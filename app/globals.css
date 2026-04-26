@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-slide {
+    animation: slide 30s linear infinite;
+  }
+
+  @keyframes slide-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-reverse {
+    animation: slide-reverse 30s linear infinite;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide {
+  animation: slide 30s linear infinite;
+}
+
+.animate-slide-reverse {
+  animation: slide-reverse 30s linear infinite;
+}
