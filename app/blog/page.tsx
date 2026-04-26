@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'YourFlix',
     images: [
       {
-        url: 'https://yourflix.vip/img/blog-og.jpg',
+        url: 'https://yourflix.vip/img/articles/image_1.png',
         width: 1200,
         height: 630,
         alt: 'YourFlix IPTV Blog',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'YourFlix IPTV Blog — Setup Guides & News',
     description: 'Official YourFlix blog. Setup guides for all devices. Latest IPTV news and streaming tips.',
-    images: ['https://yourflix.vip/img/blog-og.jpg'],
+    images: ['https://yourflix.vip/img/articles/image_1.png'],
   },
   robots: {
     index: true,
@@ -84,7 +84,7 @@ const BlogListSchema = () => (
 
 export default function BlogPage() {
   // Get featured articles (first one for featured section)
-  const featuredArticle = articles.find(article => article.featured === true) || articles[0];
+  const featuredArticle = articles[0];
   const recentArticles = articles.slice(0, 6);
 
   return (
