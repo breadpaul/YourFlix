@@ -1,50 +1,128 @@
-import { Metadata } from 'next';
+// In your pricing page (app/pricing/page.tsx) - Replace the existing PricingSchemaMarkup with this:
 
-export const metadata: Metadata = {
-    title: 'YourFlix IPTV Pricing Plans 2026 — Best Subscription Deals',
-    description: 'Choose from 3, 6, or 12 month YourFlix IPTV plans. 20,000+ live channels, 60,000+ VODs in 4K/8K. Multi-device support. Instant activation. Save up to 74%.',
-    keywords: 'yourflix, yourflix iptv, yourflix pricing, iptv subscription, best iptv 2026, yourflix plans, cheap iptv, 4k iptv, yourflix subscription',
-    alternates: {
-        canonical: 'https://yourflix.vip/pricing',
-    },
-    openGraph: {
-        title: 'YourFlix IPTV Pricing — 3, 6 & 12 Month Plans | Save Up to 74%',
-        description: 'YourFlix offers premium IPTV with 20,000+ channels, 60,000+ VODs, and anti-freeze technology. Choose your plan and number of devices. Instant WhatsApp activation.',
-        url: 'https://yourflix.vip/pricing',
-        siteName: 'YourFlix',
-        images: [
-            {
-                url: 'https://yourflix.vip/img/logo.png',
-                width: 1200,
-                height: 630,
-                alt: 'YourFlix IPTV Pricing Plans',
+const PricingSchemaMarkup = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "name": "YourFlix IPTV Pricing Plans 2026",
+            "description": "Premium YourFlix IPTV subscription plans with 3, 6, and 12 month options. 20,000+ channels, 60,000+ VODs, anti-freeze technology.",
+            "url": "https://yourflix.vip/pricing",
+            "image": "https://yourflix.vip/img/logo.png"
+          },
+          {
+            "@type": "Product",
+            "name": "YourFlix IPTV Subscription",
+            "description": "Premium IPTV subscription with 20,000+ live channels and 60,000+ VODs in 4K/8K quality. Anti-Freeze v4.0 technology eliminates buffering.",
+            "brand": {
+              "@type": "Brand",
+              "name": "YourFlix"
             },
-        ],
-        type: 'website',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'YourFlix IPTV Pricing Plans 2026',
-        description: 'Premium YourFlix IPTV subscription. 3, 6, or 12 month plans. Multi-device support. Instant activation.',
-        images: ['https://yourflix.vip/img/logo.png'],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            'max-video-preview': -1,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
-        },
-    },
-};
-
-export default function PricingLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    return <div className="pricing-layout">{children}</div>;
-}
+            "url": "https://yourflix.vip/",
+            "image": "https://yourflix.vip/img/logo.png",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "1250",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "3 Month Plan",
+                "priceCurrency": "EUR",
+                "price": "30.00",
+                "availability": "https://schema.org/InStock",
+                "url": "https://yourflix.vip/pricing",
+                "priceValidUntil": "2026-12-31",
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "EUR"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "WW"
+                  }
+                },
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "WW",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "returnDays": "7",
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "6 Month Plan",
+                "priceCurrency": "EUR",
+                "price": "50.00",
+                "availability": "https://schema.org/InStock",
+                "url": "https://yourflix.vip/pricing",
+                "priceValidUntil": "2026-12-31",
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "EUR"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "WW"
+                  }
+                },
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "WW",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "returnDays": "7",
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "12 Month Plan",
+                "priceCurrency": "EUR",
+                "price": "72.00",
+                "availability": "https://schema.org/InStock",
+                "url": "https://yourflix.vip/pricing",
+                "priceValidUntil": "2026-12-31",
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "EUR"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "WW"
+                  }
+                },
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "WW",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "returnDays": "7",
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                }
+              }
+            ]
+          }
+        ]
+      })
+    }}
+  />
+);

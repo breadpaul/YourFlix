@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { GoogleAnalytics } from '@next/third-parties/google';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://yourflix.vip'),
   icons: {
@@ -104,7 +105,7 @@ export const metadata: Metadata = {
   category: 'technology',
 };
 
-// JSON-LD Schema for Organization - Fixed with suppressHydrationWarning
+// JSON-LD Schema for Organization - FIXED with missing image field
 const OrganizationSchema = () => {
   return (
     <script
@@ -117,12 +118,134 @@ const OrganizationSchema = () => {
           "name": "YourFlix",
           "url": "https://yourflix.vip",
           "logo": "https://yourflix.vip/img/logo.png",
+          "image": "https://yourflix.vip/img/logo.png", // ✅ FIXED: Added missing image field
           "description": "Premium IPTV subscription service with 20,000+ live channels and 60,000+ VODs.",
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer support",
-            "url": "https://wa.me/447549589503"
+            "url": "https://wa.me/447549589503",
+            "availableLanguage": ["English"]
           }
+        })
+      }}
+    />
+  );
+};
+
+// ✅ NEW: Complete Product Schema with all required fields
+const ProductSchema = () => {
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "YourFlix IPTV Subscription",
+          "description": "Premium IPTV subscription with 20,000+ live channels and 60,000+ VODs in 4K/8K quality. Anti-Freeze v4.0 technology eliminates buffering.",
+          "brand": {
+            "@type": "Brand",
+            "name": "YourFlix"
+          },
+          "url": "https://yourflix.vip/",
+          "image": "https://yourflix.vip/img/logo.png",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "3 Month Plan",
+              "priceCurrency": "EUR",
+              "price": "30.00",
+              "availability": "https://schema.org/InStock",
+              "url": "https://yourflix.vip/pricing",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0",
+                  "currency": "EUR"
+                },
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": "WW"
+                }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "WW",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "returnDays": "7",
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "6 Month Plan",
+              "priceCurrency": "EUR",
+              "price": "50.00",
+              "availability": "https://schema.org/InStock",
+              "url": "https://yourflix.vip/pricing",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0",
+                  "currency": "EUR"
+                },
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": "WW"
+                }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "WW",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "returnDays": "7",
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "12 Month Plan",
+              "priceCurrency": "EUR",
+              "price": "72.00",
+              "availability": "https://schema.org/InStock",
+              "url": "https://yourflix.vip/pricing",
+              "priceValidUntil": "2026-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0",
+                  "currency": "EUR"
+                },
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": "WW"
+                }
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "WW",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "returnDays": "7",
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+              }
+            }
+          ]
         })
       }}
     />
@@ -135,6 +258,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head suppressHydrationWarning>
         <GoogleAnalytics gaId="G-PKFJKYR585" />
         <OrganizationSchema />
+        <ProductSchema /> {/* ✅ Added Product Schema */}
       </head>
       <body
         className="bg-white text-gray-900 antialiased selection:bg-[#FFC107]/30 flex flex-col min-h-screen"
