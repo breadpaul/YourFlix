@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Play, CheckCircle2, Tv, Wifi, Radio, MonitorPlay, Zap, HeadphonesIcon, Settings2, ShieldCheck, Heart, Smartphone, MessageCircle, ArrowRight, ChevronDown, ChevronUp, Calendar } from 'lucide-react';
+import { Play, CheckCircle2, Tv, Wifi, Radio, MonitorPlay, Zap, HeadphonesIcon, Settings2, ShieldCheck, Heart, Smartphone, MessageCircle, ArrowRight, ChevronDown, ChevronUp, Calendar, ShoppingCart, Wallet, CreditCard as CreditCardIcon  } from 'lucide-react';
 import { FaAndroid, FaApple, FaWindows, FaLinux, FaChrome, FaAmazon } from 'react-icons/fa';
 import { SiNetflix, SiHbomax, SiCnn } from 'react-icons/si';
 import { articles } from '@/lib/data/articles';
@@ -296,168 +296,167 @@ export default function Home() {
       </section>
 
 
-      {/* ==================== PRICING SECTION ==================== */}
-      <section className="py-24 bg-black text-center">
-        <div className="container mx-auto px-6">
-          <h4 className="text-[#FFC107] text-sm font-bold uppercase tracking-wider mb-2">Our Plans</h4>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">YourFlix Subscription Plans</h2>
-          <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-16">
-            Select the best YourFlix plan for you and choose the number of devices you need to stream on simultaneously.
-          </p>
+{/* ==================== PRICING SECTION ==================== */}
+<section className="py-24 bg-black text-center">
+  <div className="container mx-auto px-6">
+    <h4 className="text-[#FFC107] text-sm font-bold uppercase tracking-wider mb-2">Our Plans</h4>
+    <h2 className="text-3xl md:text-5xl font-black text-white mb-6">YourFlix Subscription Plans</h2>
+    <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-16">
+      Select the best YourFlix plan for you and choose the number of devices you need to stream on simultaneously.
+    </p>
 
-          <div className="flex flex-col items-center justify-center mb-12 relative z-50">
-            <div className="bg-white/10 p-1.5 rounded-xl inline-flex text-sm font-bold shadow-2xl border border-white/20">
-              <button type="button" onClick={() => setGlobalDeviceCount(1)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 1 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
-                1 Device
-              </button>
-              <button type="button" onClick={() => setGlobalDeviceCount(2)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 2 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
-                2 Devices
-              </button>
-              <button type="button" onClick={() => setGlobalDeviceCount(3)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 3 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
-                3 Devices
-              </button>
-            </div>
-            <p className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mt-6 bg-[#FFC107]/10 px-4 py-2 rounded-full border border-[#FFC107]/20">Currently Selected YourFlix Plan: {globalDeviceCount} Device{globalDeviceCount > 1 ? 's' : ''}</p>
+    <div className="flex flex-col items-center justify-center mb-12 relative z-50">
+      <div className="bg-white/10 p-1.5 rounded-xl inline-flex text-sm font-bold shadow-2xl border border-white/20">
+        <button type="button" onClick={() => setGlobalDeviceCount(1)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 1 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
+          1 Device
+        </button>
+        <button type="button" onClick={() => setGlobalDeviceCount(2)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 2 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
+          2 Devices
+        </button>
+        <button type="button" onClick={() => setGlobalDeviceCount(3)} className={`cursor-pointer px-6 py-3 rounded-lg transition-all select-none flex items-center gap-2 ${globalDeviceCount === 3 ? 'bg-[#FFC107] text-black shadow-md scale-105' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}>
+          3 Devices
+        </button>
+      </div>
+      <p className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mt-6 bg-[#FFC107]/10 px-4 py-2 rounded-full border border-[#FFC107]/20">Currently Selected YourFlix Plan: {globalDeviceCount} Device{globalDeviceCount > 1 ? 's' : ''}</p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* 3 Months Plan */}
+      <a
+        href={`https://wa.me/447549589503?text=I%20want%20the%203%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[3][globalDeviceCount as 1 | 2 | 3]}`}
+        target="_blank"
+        rel="noreferrer"
+        className="group cursor-pointer"
+      >
+        <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border border-gray-200 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full">
+          <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
+            <span>YourFlix IPTV Access</span>
+            <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
+          </h5>
+          <h3 className="text-2xl font-black mb-4 text-black leading-none">3 Month</h3>
+          <div className="flex justify-center gap-1 mb-8">
+            <span className="text-2xl font-bold mt-2">€</span>
+            <span className="text-8xl font-black tracking-tighter text-black">{pricing[3][globalDeviceCount as 1 | 2 | 3]}</span>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* 3 Months Plan */}
-            <a
-              href={`https://wa.me/447549589503?text=I%20want%20the%203%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[3][globalDeviceCount as 1 | 2 | 3]}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group cursor-pointer"
-            >
-              <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border border-gray-200 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 h-full">
-                <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
-                  <span>YourFlix IPTV Access</span>
-                  <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
-                </h5>
-                <h3 className="text-2xl font-black mb-4 text-black leading-none">3 Month</h3>
-                <div className="flex justify-center gap-1 mb-8">
-                  <span className="text-2xl font-bold mt-2">€</span>
-                  <span className="text-8xl font-black tracking-tighter text-black">{pricing[3][globalDeviceCount as 1 | 2 | 3]}</span>
-                </div>
-                <div className="h-px w-full bg-gray-100 mb-8" />
-                <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
-                  {[
-                    '20,000+ YourFlix Premium Channels',
-                    '60,000+ YourFlix 4K/8K Movies & Series',
-                    'All Global Sports Packages on YourFlix',
-                    'Free Updates & YourFlix EPG Guide',
-                    'YourFlix Premium Anti-Freeze v4.0',
-                    '7-Day Catch-up on YourFlix',
-                    'Instant YourFlix Activation 24/7',
-                    'YourFlix on All Devices Support'
-                  ].map((feature, i) => (
-                    <p key={i} className="flex items-center gap-3 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
-                      {feature}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
-                  <div className="w-full flex items-center justify-center gap-2 bg-[#FFC107] text-black font-bold text-sm py-3 rounded-lg group-hover:bg-[#E5AD06] transition-all uppercase tracking-wider">
-                    <MessageCircle className="w-4 h-4 shrink-0" />
-                    Get YourFlix Now
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            {/* 6 Months Plan (Most Popular) */}
-            <a
-              href={`https://wa.me/447549589503?text=I%20want%20the%206%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[6][globalDeviceCount as 1 | 2 | 3]}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group cursor-pointer"
-            >
-              <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border-2 border-[#FFC107] shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
-                <div className="absolute top-0 right-0 bg-[#FFC107] text-black text-[10px] uppercase font-bold px-4 py-1 rounded-bl-lg tracking-widest shadow-lg z-20">Most Popular</div>
-                <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
-                  <span>YourFlix IPTV Access</span>
-                  <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
-                </h5>
-                <h3 className="text-2xl font-black mb-4 text-black leading-none">6 Month</h3>
-                <div className="flex justify-center gap-1 mb-8">
-                  <span className="text-2xl font-bold mt-2">€</span>
-                  <span className="text-8xl font-black tracking-tighter text-black">{pricing[6][globalDeviceCount as 1 | 2 | 3]}</span>
-                </div>
-                <div className="h-px w-full bg-gray-100 mb-8" />
-                <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
-                  {[
-                    '20,000+ YourFlix Premium Channels',
-                    '60,000+ YourFlix 4K/8K Movies & Series',
-                    'All Global Sports Packages on YourFlix',
-                    'Free Updates & YourFlix EPG Guide',
-                    'YourFlix Premium Anti-Freeze v4.0',
-                    '7-Day Catch-up on YourFlix',
-                    'Instant YourFlix Activation 24/7',
-                    'YourFlix on All Devices Support'
-                  ].map((feature, i) => (
-                    <p key={i} className="flex items-center gap-3 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
-                      {feature}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
-                  <div className="w-full flex items-center justify-center gap-2 bg-[#FFC107] text-black font-bold text-sm py-3 rounded-lg group-hover:bg-[#E5AD06] transition-all uppercase tracking-wider">
-                    <MessageCircle className="w-4 h-4 shrink-0" />
-                    Get YourFlix Now
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            {/* 12 Months Plan (Best Value) */}
-            <a
-              href={`https://wa.me/447549589503?text=I%20want%20the%2012%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[12][globalDeviceCount as 1 | 2 | 3]}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group cursor-pointer"
-            >
-              <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border border-gray-200 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 h-full">
-                <div className="absolute top-0 right-0 bg-black text-white text-[10px] uppercase font-bold px-4 py-1 rounded-bl-lg tracking-widest shadow-lg z-20">Best Value</div>
-                <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
-                  <span>YourFlix IPTV Access</span>
-                  <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
-                </h5>
-                <h3 className="text-2xl font-black mb-4 text-black leading-none">12 Month</h3>
-                <div className="flex justify-center gap-1 mb-8">
-                  <span className="text-2xl font-bold mt-2">€</span>
-                  <span className="text-8xl font-black tracking-tighter text-black">{pricing[12][globalDeviceCount as 1 | 2 | 3]}</span>
-                </div>
-                <div className="h-px w-full bg-gray-100 mb-8" />
-                <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
-                  {[
-                    '20,000+ YourFlix Premium Channels',
-                    '60,000+ YourFlix 4K/8K Movies & Series',
-                    'All Global Sports Packages on YourFlix',
-                    'Free Updates & YourFlix EPG Guide',
-                    'YourFlix Premium Anti-Freeze v4.0',
-                    '7-Day Catch-up on YourFlix',
-                    'Instant YourFlix Activation 24/7',
-                    'YourFlix on All Devices Support'
-                  ].map((feature, i) => (
-                    <p key={i} className="flex items-center gap-3 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
-                      {feature}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
-                  <div className="w-full flex items-center justify-center gap-2 bg-[#FFC107] text-black font-bold text-sm py-3 rounded-lg group-hover:bg-[#E5AD06] transition-all uppercase tracking-wider">
-                    <MessageCircle className="w-4 h-4 shrink-0" />
-                    Get YourFlix Now
-                  </div>
-                </div>
-              </div>
-            </a>
+          <div className="h-px w-full bg-gray-100 mb-8" />
+          <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
+            {[
+              '20,000+ YourFlix Premium Channels',
+              '60,000+ YourFlix 4K/8K Movies & Series',
+              'All Global Sports Packages on YourFlix',
+              'Free Updates & YourFlix EPG Guide',
+              'YourFlix Premium Anti-Freeze v4.0',
+              '7-Day Catch-up on YourFlix',
+              'Instant YourFlix Activation 24/7',
+              'YourFlix on All Devices Support'
+            ].map((feature, i) => (
+              <p key={i} className="flex items-center gap-3 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
+                {feature}
+              </p>
+            ))}
+          </div>
+          <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
+            <div className="w-full flex items-center justify-center gap-2 bg-black text-white font-bold text-sm py-3 rounded-lg transition-all duration-300 group-hover:bg-[#FFC107] group-hover:text-black uppercase tracking-wider">
+              <ShoppingCart className="w-4 h-4 shrink-0" />
+              Buy Now
+            </div>
           </div>
         </div>
-      </section>
+      </a>
 
+      {/* 6 Months Plan (Most Popular) */}
+      <a
+        href={`https://wa.me/447549589503?text=I%20want%20the%206%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[6][globalDeviceCount as 1 | 2 | 3]}`}
+        target="_blank"
+        rel="noreferrer"
+        className="group cursor-pointer"
+      >
+        <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border-2 border-[#FFC107] shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full">
+          <div className="absolute top-0 right-0 bg-[#FFC107] text-black text-[10px] uppercase font-bold px-4 py-1 rounded-bl-lg tracking-widest shadow-lg z-20">Most Popular</div>
+          <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
+            <span>YourFlix IPTV Access</span>
+            <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
+          </h5>
+          <h3 className="text-2xl font-black mb-4 text-black leading-none">6 Month</h3>
+          <div className="flex justify-center gap-1 mb-8">
+            <span className="text-2xl font-bold mt-2">€</span>
+            <span className="text-8xl font-black tracking-tighter text-black">{pricing[6][globalDeviceCount as 1 | 2 | 3]}</span>
+          </div>
+          <div className="h-px w-full bg-gray-100 mb-8" />
+          <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
+            {[
+              '20,000+ YourFlix Premium Channels',
+              '60,000+ YourFlix 4K/8K Movies & Series',
+              'All Global Sports Packages on YourFlix',
+              'Free Updates & YourFlix EPG Guide',
+              'YourFlix Premium Anti-Freeze v4.0',
+              '7-Day Catch-up on YourFlix',
+              'Instant YourFlix Activation 24/7',
+              'YourFlix on All Devices Support'
+            ].map((feature, i) => (
+              <p key={i} className="flex items-center gap-3 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
+                {feature}
+              </p>
+            ))}
+          </div>
+          <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
+            <div className="w-full flex items-center justify-center gap-2 bg-[#FFC107] text-black font-bold text-sm py-3 rounded-lg transition-all duration-300 group-hover:bg-[#E5AD06] uppercase tracking-wider">
+              <ShoppingCart className="w-4 h-4 shrink-0" />
+              Buy Now
+            </div>
+          </div>
+        </div>
+      </a>
+
+      {/* 12 Months Plan (Best Value) */}
+      <a
+        href={`https://wa.me/447549589503?text=I%20want%20the%2012%20Months%20YourFlix%20Plan%20for%20${globalDeviceCount}%20Device(s)%20paying%20%E2%82%AC${pricing[12][globalDeviceCount as 1 | 2 | 3]}`}
+        target="_blank"
+        rel="noreferrer"
+        className="group cursor-pointer"
+      >
+        <div className="bg-white rounded-xl overflow-hidden flex flex-col pt-8 relative border border-gray-200 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full">
+          <div className="absolute top-0 right-0 bg-black text-white text-[10px] uppercase font-bold px-4 py-1 rounded-bl-lg tracking-widest shadow-lg z-20">Best Value</div>
+          <h5 className="text-[#FFC107] text-xs font-bold uppercase tracking-wider mb-2 flex flex-wrap items-center justify-center gap-2">
+            <span>YourFlix IPTV Access</span>
+            <span className="flex items-center gap-1.5 opacity-60"><FaAndroid /><FaApple /><Tv /></span>
+          </h5>
+          <h3 className="text-2xl font-black mb-4 text-black leading-none">12 Month</h3>
+          <div className="flex justify-center gap-1 mb-8">
+            <span className="text-2xl font-bold mt-2">€</span>
+            <span className="text-8xl font-black tracking-tighter text-black">{pricing[12][globalDeviceCount as 1 | 2 | 3]}</span>
+          </div>
+          <div className="h-px w-full bg-gray-100 mb-8" />
+          <div className="flex-grow px-6 text-left text-sm text-gray-600 space-y-3 mb-8">
+            {[
+              '20,000+ YourFlix Premium Channels',
+              '60,000+ YourFlix 4K/8K Movies & Series',
+              'All Global Sports Packages on YourFlix',
+              'Free Updates & YourFlix EPG Guide',
+              'YourFlix Premium Anti-Freeze v4.0',
+              '7-Day Catch-up on YourFlix',
+              'Instant YourFlix Activation 24/7',
+              'YourFlix on All Devices Support'
+            ].map((feature, i) => (
+              <p key={i} className="flex items-center gap-3 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-[#FFC107] shrink-0" />
+                {feature}
+              </p>
+            ))}
+          </div>
+          <div className="mt-auto border-t border-gray-100 p-5 bg-gray-50">
+            <div className="w-full flex items-center justify-center gap-2 bg-black text-white font-bold text-sm py-3 rounded-lg transition-all duration-300 group-hover:bg-[#FFC107] group-hover:text-black uppercase tracking-wider">
+              <ShoppingCart className="w-4 h-4 shrink-0" />
+              Buy Now
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* ==================== LIVE SPORTS SECTION ==================== */}
       {/* Image on RIGHT, Text on LEFT */}

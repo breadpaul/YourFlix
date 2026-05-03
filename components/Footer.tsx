@@ -58,7 +58,6 @@ export function Footer() {
                 <li><Link href="/terms" className="text-sm text-gray-500 hover:text-[#FFC107] transition-colors flex items-center gap-1 group">Terms of Service <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" /></Link></li>
                 <li><Link href="/privacy" className="text-sm text-gray-500 hover:text-[#FFC107] transition-colors flex items-center gap-1 group">Privacy Policy <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" /></Link></li>
                 <li><Link href="/refund" className="text-sm text-gray-500 hover:text-[#FFC107] transition-colors flex items-center gap-1 group">Refund Policy <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" /></Link></li>
-                <li><Link href="/cookies" className="text-sm text-gray-500 hover:text-[#FFC107] transition-colors flex items-center gap-1 group">Cookie Policy <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" /></Link></li>
               </ul>
             </div>
 

@@ -78,16 +78,6 @@ export function Header() {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-4 z-50">
-          {/* WhatsApp Support Link */}
-          <a
-            href="https://wa.me/447549589503"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 text-white/70 hover:text-[#FFC107] transition-colors text-sm font-medium"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Support</span>
-          </a>
 
           {/* CTA Button */}
           <a

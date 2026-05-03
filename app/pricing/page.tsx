@@ -6,7 +6,8 @@ import {
   Tv, CheckCircle2, MessageCircle, Star,
   Shield, Zap, Headphones, CreditCard, Gem,
   Globe, Smartphone, Monitor, Wifi, Settings2,
-  HeartHandshake, Clock, ArrowRight, ChevronDown, ChevronUp
+  HeartHandshake, Clock, ArrowRight, ChevronDown, ChevronUp,
+  ShoppingCart, Wallet, CreditCard as CreditCardIcon, Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -338,7 +339,7 @@ function PricingCard({ months, deviceCount, popular, bestValue }: { months: numb
   const pricePerMonth = (price / months).toFixed(2);
 
   return (
-    <div className={`relative rounded-xl flex flex-col bg-white overflow-hidden ${popular ? 'border-2 border-[#FFC107] shadow-2xl scale-100 md:scale-105 z-10' : 'border border-gray-200 shadow-lg'} pt-8`}>
+    <div className={`relative rounded-xl flex flex-col bg-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl ${popular ? 'border-2 border-[#FFC107] shadow-2xl scale-100 md:scale-105 z-10' : 'border border-gray-200 shadow-lg'} pt-8`}>
       {popular && <div className="absolute top-0 right-0 bg-[#FFC107] text-black text-[10px] uppercase font-bold px-8 py-1.5 rotate-45 translate-x-[26%] translate-y-[50%] tracking-widest shadow-lg z-20">Popular</div>}
       {bestValue && <div className="absolute top-0 right-0 bg-black text-white text-[10px] uppercase font-bold px-8 py-1.5 rotate-45 translate-x-[26%] translate-y-[50%] tracking-widest shadow-lg z-20">Best Value</div>}
 
@@ -376,9 +377,9 @@ function PricingCard({ months, deviceCount, popular, bestValue }: { months: numb
       </div>
 
       <div className="mt-auto p-6 bg-gray-50 border-t border-gray-100">
-        <a href={`https://wa.me/447549589503?text=I%20want%20the%20YourFlix%20${months}%20Months%20Plan%20for%20${deviceCount}%20Device(s)%20paying%20%E2%82%AC${price}`} target="_blank" rel="noreferrer" className={`w-full py-4 rounded flex items-center justify-center gap-2 font-bold transition-colors text-sm uppercase tracking-wide border-b-4 active:border-b-0 active:translate-y-1 ${popular ? 'bg-[#FFC107] text-black border-[#D4A004] hover:bg-[#E5AD06]' : 'bg-black text-white border-black/20 hover:bg-[#FFC107] hover:text-black'}`}>
-          <MessageCircle className="w-5 h-5 shrink-0" />
-          Subscribe to YourFlix
+        <a href={`https://wa.me/447549589503?text=I%20want%20the%20YourFlix%20${months}%20Months%20Plan%20for%20${deviceCount}%20Device(s)%20paying%20%E2%82%AC${price}`} target="_blank" rel="noreferrer" className={`w-full py-4 rounded flex items-center justify-center gap-2 font-bold transition-all duration-300 text-sm uppercase tracking-wide ${popular ? 'bg-[#FFC107] text-black hover:bg-[#E5AD06] hover:scale-105 hover:shadow-lg' : 'bg-black text-white hover:bg-[#FFC107] hover:text-black hover:scale-105 hover:shadow-lg'}`}>
+          <ShoppingCart className="w-5 h-5 shrink-0" />
+          Buy Now
         </a>
       </div>
     </div>
